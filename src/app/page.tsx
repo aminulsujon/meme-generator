@@ -29,8 +29,9 @@ export default function Home() {
   };
 
   return (
+  <>
     <div className="min-h-screen bg-gray-100 flex flex-col items-center py-10">
-      <h1 className="text-4xl font-bold text-blue-600 mb-8">Meme Generator</h1>
+      <h1 className="text-4xl font-bold text-blue-600 mb-8">Free Meme Generator</h1>
       <input
         type="file"
         accept="image/*"
@@ -76,5 +77,6 @@ export default function Home() {
         </button>
       )}
     </div>
+  </>
   );
 }

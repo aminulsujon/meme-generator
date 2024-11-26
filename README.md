@@ -1,7 +1,7 @@
 
 # Meme Generator - Next.js Application
 
-![Meme Generator Preview](https://via.placeholder.com/1000x500) <!-- Replace with an actual screenshot -->
+![Meme Generator Preview](https://free-meme-generator.vercel.app/free-meme-generator-online.webp)
 
 ## 🎉 About the Project
 
@@ -11,6 +11,7 @@ Welcome to the **Meme Generator**, a sleek and responsive application built with
 - Download the meme with ease.
 
 Perfect for meme enthusiasts, social media users, and anyone looking to have fun with memes! 🎭
+**[Live Demo - Generate meme now](https://free-meme-generator.vercel.app/)** 
 
 ---
 

@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: 
+Disallow: /cgi-bin/
+Sitemap: https://free-meme-generator.vercel.app/sitemap.xml
+Sitemap: https://free-meme-generator.vercel.app/image-sitemap.xml

@@ -14,7 +14,7 @@ const jsonLd = {
     "url": "https://free-meme-generator.vercel.app"
   },
   "mainEntityOfPage": "https://free-meme-generator.vercel.app",
-  "image": "https://free-meme-generator.vercel.app/meme-generator.jpg",
+  "image": "https://free-meme-generator.vercel.app/free-meme-generator-online.webp",
   "sameAs": [
     "https://www.facebook.com/",
     "https://twitter.com/"

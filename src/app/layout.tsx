@@ -78,7 +78,7 @@ export default function RootLayout({
       >
         {children}
 
-        <div className="p-4 bg-gray-300 flex flex-col items-center">
+        <div className="px-4 py-20 pt-4 bg-gray-300 flex flex-col items-center">
           Powered By
           <a target="_blank" href="https://github.com/aminulsujon/meme-generator">
             <svg className="inline octicon octicon-mark-github v-align-middle color-fg-default" height="32" aria-hidden="true" viewBox="0 0 24 24" version="1.1" width="32" data-view-component="true">

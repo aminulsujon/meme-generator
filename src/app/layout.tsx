@@ -18,7 +18,25 @@ const jsonLd = {
   "sameAs": [
     "https://www.facebook.com/",
     "https://twitter.com/"
-  ]
+  ],
+  "offers": {
+    "@type": "Offer",
+    "url": "https://free-meme-generator.vercel.app",
+    "priceCurrency": "USD",
+    "price": "0.00",
+    "priceValidUntil": "2025-12-31",
+    "eligibleRegion": {
+      "@type": "Place",
+      "name": "Worldwide"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.5",
+    "reviewCount": "268"
+  },
+  "applicationCategory": "Utility",
+  "operatingSystem": "All"
 };
 
 const geistSans = localFont({

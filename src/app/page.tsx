@@ -171,7 +171,7 @@ export default function Home() {
                 alignItems: "center",
                 justifyContent: "center",
                 cursor: "grab",
-                border: "3px solid blue",
+                border: "3px solid rgb(175 51 240)",
                 borderRadius: "10px",
                 padding: "10px",
                 fontSize: "2em",
@@ -194,7 +194,7 @@ export default function Home() {
                 alignItems: "center",
                 justifyContent: "center",
                 cursor: "grab",
-                border: "3px solid cayan",
+                border: "3px solid rgb(88 182 213)",
                 borderRadius: "10px",
                 padding: "10px",
                 fontSize: "2em",
@@ -203,7 +203,7 @@ export default function Home() {
             >
               {bottomText}
             </div>
-            <Image src={image} alt="Meme" className="w-full h-auto rounded-lg" />
+            <Image src={image} width={300} height={300} alt="Meme" className="w-full h-auto rounded-lg" />
           </div>
         )}
         

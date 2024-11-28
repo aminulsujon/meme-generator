@@ -1,16 +1,21 @@
 "use client"
 import React, { useState, useRef } from "react";
 import { toPng } from "html-to-image";
+import Image from "next/image";
 
 
 export default function Home() {
   const [image, setImage] = useState<string | null>(null);
   const [topText, setTopText] = useState("");
+  const [topColor, setTopColor] = useState("");
+  const [topBG, setTopBG] = useState("");
   const [bottomText, setBottomText] = useState("");
+  const [bottomColor, setbottomColor] = useState("");
+  const [bottomBG, setBottomBG] = useState("");
   const memeRef = useRef<HTMLDivElement>(null);
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]; // Use optional chaining to avoid runtime errors
+    const file = e.target.files?.[0];
     if (file) {
       setImage(URL.createObjectURL(file));
     }
@@ -29,10 +34,42 @@ export default function Home() {
     }
   };
 
+  // State to track positions of items
+  const [items, setItems] = useState([
+    { id: 1, x: 50, y: 50 },
+    { id: 2, x: 200, y: 200 },
+    { id: 3, x: 250, y: 250 },
+  ]);
+
+  // Function to handle dragging start
+  const handleDragStart = (ev: { dataTransfer: { setData: (arg0: string, arg1: any) => void; }; }, id: any) => {
+    ev.dataTransfer.setData("id", id);
+  };
+
+  // Function to handle dropping
+  const handleDrop = (ev: { dataTransfer: { getData: (arg0: string) => string; }; clientX: any; clientY: any; }) => {
+    const id = parseInt(ev.dataTransfer.getData("id"), 10);
+    const x = ev.clientX;
+    const y = ev.clientY;
+
+    setItems((prev) =>
+      prev.map((item) =>
+        item.id === id
+          ? {
+              ...item,
+              x: x - 50, // Offset for centering
+              y: y - 50,
+            }
+          : item
+      )
+    );
+  };
+  
   return (
   <>
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center py-10">
-      <h1 className="text-4xl font-bold text-blue-600 mb-8">Free Meme Generator</h1>
+  
+    <div className="bg-gray-100 flex flex-col items-center py-10">
+      <h1 className="text-4xl font-bold text-blue-600 mb-8 px-4">Free Meme Generator</h1>
       <input
         type="file"
         accept="image/*"
@@ -40,35 +77,138 @@ export default function Home() {
         className="mb-6 px-4 py-2 border border-gray-300 rounded-lg cursor-pointer"
       />
       <div className="flex flex-col sm:flex-row gap-4 mb-6">
-        <input
-          type="text"
-          placeholder="Top Text"
-          value={topText}
-          onChange={(e) => setTopText(e.target.value)}
-          className="px-4 py-2 border border-gray-300 rounded-lg"
-        />
-        <input
-          type="text"
-          placeholder="Bottom Text"
-          value={bottomText}
-          onChange={(e) => setBottomText(e.target.value)}
-          className="px-4 py-2 border border-gray-300 rounded-lg"
-        />
-      </div>
-      {image && (
-        <div
-          ref={memeRef}
-          className="relative w-[300px] h-auto overflow-hidden rounded-lg shadow-lg"
-        >
-          <img src={image} alt="Meme" className="w-full h-auto rounded-lg" />
-          <div className="absolute top-4 left-0 w-full text-center text-white text-xl font-bold drop-shadow-md">
-            {topText}
-          </div>
-          <div className="absolute bottom-4 left-0 w-full text-center text-white text-xl font-bold drop-shadow-md">
-            {bottomText}
+        <div>
+          <input
+            type="text"
+            placeholder="Top Text"
+            value={topText}
+            onChange={(e) => setTopText(e.target.value)}
+            className="px-4 py-2 border border-gray-300 rounded-lg"
+          />
+          <div>
+            <input
+              type="color"
+              id="head"
+              className="color-box"
+              name="head"
+              defaultValue="#CC95E9"
+              onChange={(e) => setTopBG(e.target.value)}
+              />
+            <label htmlFor="head">BG</label>
+
+            <input
+              type="color"
+              id="headcolor"
+              className="ml-2 color-box"
+              name="headcolor"
+              defaultValue="#0B005C"
+              onChange={(e) => setTopColor(e.target.value)}
+              />
+            <label htmlFor="headcolor">Text</label>
           </div>
         </div>
-      )}
+
+        <div>
+          <input
+            type="text"
+            placeholder="Bottom Text"
+            value={bottomText}
+            onChange={(e) => setBottomText(e.target.value)}
+            className="px-4 py-2 border border-gray-300 rounded-lg"
+          />
+          <div>
+            <input
+              type="color"
+              id="BottomBG"
+              className="color-box"
+              name="BottomBG"
+              defaultValue="#add8e6"
+              onChange={(e) => setBottomBG(e.target.value)}
+              />
+            <label htmlFor="BottomBG">BG</label>
+
+            <input
+              type="color"
+              id="Bottom"
+              className="ml-2 color-box"
+              name="Bottom"
+              defaultValue="#0B005C"
+              onChange={(e) => setbottomColor(e.target.value)}
+              />
+            <label htmlFor="Bottom">Text</label>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div
+        style={{
+          width: "90vw",
+          height: "100vh",
+          border: "1px solid black",
+          position: "relative",
+          overflow: "hidden",
+        }}
+        onDragOver={(e) => e.preventDefault()}
+        onDrop={handleDrop}
+        >
+        
+        {image && (
+          <div
+            ref={memeRef}
+            className="absolute overflow-hidden rounded-lg shadow-lg"
+          >
+            <div
+              key={items[0].id}
+              draggable
+              onDragStart={(e) => handleDragStart(e, items[0].id)}
+              style={{
+                backgroundColor: topBG? topBG : "#CC95E9",
+                color: topColor ? topColor : "#0B005C",
+                position: "absolute",
+                top: items[0].y,
+                left: items[0].x,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "grab",
+                border: "3px solid blue",
+                borderRadius: "10px",
+                padding: "10px",
+                fontSize: "2em",
+                zIndex: "1"
+              }}
+            >
+              {topText}
+            </div>
+            <div
+              key={items[1].id}
+              draggable
+              onDragStart={(e) => handleDragStart(e, items[1].id)}
+              style={{
+                backgroundColor: bottomBG? bottomBG : "#add8e6",
+                color: bottomColor ? bottomColor : "#0B005C",
+                position: "absolute",
+                top: items[1].y,
+                left: items[1].x,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "grab",
+                border: "3px solid cayan",
+                borderRadius: "10px",
+                padding: "10px",
+                fontSize: "2em",
+                zIndex: "1"
+              }}
+            >
+              {bottomText}
+            </div>
+            <Image src={image} alt="Meme" className="w-full h-auto rounded-lg" />
+          </div>
+        )}
+        
+      </div>
+      <hr />
       {image && (
         <button
           onClick={downloadMeme}

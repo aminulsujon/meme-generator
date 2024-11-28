@@ -1,3 +1,4 @@
+"use client"
 import Link from 'next/link';
 
 export default function Custom404() {
@@ -10,9 +11,9 @@ export default function Custom404() {
         <p className="text-lg text-gray-500 mb-6">
           The page you're looking for doesn't exist or has been moved.
         </p>
-          <a href="/" className="px-6 py-2 text-white bg-blue-600 rounded-full hover:bg-blue-700 transition duration-200">
+          <Link href="/" className="px-6 py-2 text-white bg-blue-600 rounded-full hover:bg-blue-700 transition duration-200">
             Go to Homepage
-          </a>
+          </Link>
       </div>
     </div>
   );

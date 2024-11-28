@@ -90,14 +90,14 @@ export default function RootLayout({
           <li><strong>Font Styles</strong>: Users can change the font, size, color, and alignment of the text to match the style they want for their meme.</li>
           <li><strong>Editing Tools</strong>: Basic tools like resizing, cropping, rotating, and adjusting image opacity.</li>
           <li><strong>Download or Share</strong>: After creating a meme, users can download the image or share it directly on social media platforms.</li>
-          <li><strong>Templates</strong>: Many meme generators come with a collection of popular meme templates, such as "Distracted Boyfriend," "Drake Hotline Bling," and "Mocking SpongeBob."</li>
+          <li><strong>Templates</strong>: Many meme generators come with a collection of popular meme templates, such as Distracted Boyfriend, Drake Hotline Bling, and Mocking SpongeBob.</li>
           <li><strong>No Watermarks</strong>: Many free meme generators allow users to create and download memes without any watermarks or branding, though some do offer premium options.</li>
         </ol>
 
         <h2 className="font-bold my-4">Benefits of Using a Free Meme Generator:</h2>
         <ul>
           <li><strong>Ease of Use</strong>: No need for advanced photo editing skills. Just upload, edit, and create.</li>
-          <li><strong>Accessibility</strong>: Many meme generators are available directly in your web browser, so you don’t need to install any software.</li>
+          <li><strong>Accessibility</strong>: Many meme generators are available directly in your web browser, so you don't need to install any software.</li>
           <li><strong>Speed</strong>: You can create and share memes in just a few minutes.</li>
           <li><strong>Cost-effective</strong>: Completely free to use, which makes it accessible to anyone with an internet connection.</li>
           <li><strong>Fun and Creative</strong>: It's a fun way to share humor and engage with internet culture.</li>
@@ -112,14 +112,14 @@ export default function RootLayout({
         </ul>
 
         <h2 className="font-bold my-4">Example Use Case:</h2>
-        <p>Imagine you want to create a meme with the "Distracted Boyfriend" template. You could:</p>
+        <p>Imagine you want to create a meme with the Distracted Boyfriend template. You could:</p>
         <ol>
-          <li>Select the template from the meme generator’s library.</li>
+          <li>Select the template from the meme generator's library.</li>
           <li>Add your own captions to the boyfriend, girlfriend, and other woman in the image.</li>
           <li>Download and share the finished meme on social media or with friends.</li>
         </ol>
 
-        <p>In summary, a <strong>free meme generator</strong> is a simple, accessible tool that allows users to create memes with little to no effort. Whether you’re just having fun or need a quick laugh for social media, meme generators make the process easy and fast.</p>
+        <p>In summary, a <strong>free meme generator</strong> is a simple, accessible tool that allows users to create memes with little to no effort. Whether you're just having fun or need a quick laugh for social media, meme generators make the process easy and fast.</p>
 
         </div>
         <div className="px-4 py-20 pt-4 bg-gray-300 flex flex-col items-center">

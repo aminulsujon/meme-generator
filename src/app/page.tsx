@@ -12,6 +12,8 @@ export default function Home() {
   const [bottomText, setBottomText] = useState("");
   const [bottomColor, setbottomColor] = useState("");
   const [bottomBG, setBottomBG] = useState("");
+  const [topFont, setTopFont] = useState("");
+  const [bottomFont, setBottomFont] = useState("");
   const memeRef = useRef<HTMLDivElement>(null);
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,16 +51,16 @@ export default function Home() {
   // Function to handle dropping
   const handleDrop = (ev: { dataTransfer: { getData: (arg0: string) => string; }; clientX: any; clientY: any; }) => {
     const id = parseInt(ev.dataTransfer.getData("id"), 10);
-    const x = ev.clientX;
-    const y = ev.clientY;
-
+    const x = ev.clientX - 100;
+    const y = ev.clientY - 100;
+    console.log(x,y)
     setItems((prev) =>
       prev.map((item) =>
         item.id === id
           ? {
               ...item,
-              x: x - 50, // Offset for centering
-              y: y - 50,
+              x: x, // Offset for centering
+              y: y,
             }
           : item
       )
@@ -77,6 +79,7 @@ export default function Home() {
         className="mb-6 px-4 py-2 border border-gray-300 rounded-lg cursor-pointer"
       />
       <div className="flex flex-col sm:flex-row gap-4 mb-6">
+        {/* first button */}
         <div>
           <input
             type="text"
@@ -105,9 +108,24 @@ export default function Home() {
               onChange={(e) => setTopColor(e.target.value)}
               />
             <label htmlFor="headcolor">Text</label>
+
+            <select
+              id="fontbutton"
+              className="ml-2 color-box"
+              name="fontbutton"
+              defaultValue={1}
+              onChange={(e) => setTopFont(e.target.value)}
+              >
+                <option value={.5}>Small</option>
+                <option value={1}>Normal</option>
+                <option value={2}>Big</option>
+                <option value={3}>Large</option>
+                <option value={4}>Largest</option>
+              </select> &nbsp;
+            <label htmlFor="fontbutton">Font</label>
           </div>
         </div>
-
+        {/* second button */}
         <div>
           <input
             type="text"
@@ -136,6 +154,21 @@ export default function Home() {
               onChange={(e) => setbottomColor(e.target.value)}
               />
             <label htmlFor="Bottom">Text</label>
+
+            <select
+              id="fontbuttonbottom"
+              className="ml-2 color-box"
+              name="fontbuttonbottom"
+              defaultValue={1}
+              onChange={(e) => setBottomFont(e.target.value)}
+              >
+                <option value={.5}>Small</option>
+                <option value={1}>Normal</option>
+                <option value={2}>Big</option>
+                <option value={3}>Large</option>
+                <option value={4}>Largest</option>
+              </select> &nbsp;
+            <label htmlFor="fontbutton">Font</label>
           </div>
         </div>
       </div>
@@ -174,7 +207,7 @@ export default function Home() {
                 border: "3px solid rgb(175 51 240)",
                 borderRadius: "10px",
                 padding: "10px",
-                fontSize: "2em",
+                fontSize: topFont ? topFont+'em' : '1em',
                 zIndex: "1"
               }}
             >
@@ -197,7 +230,7 @@ export default function Home() {
                 border: "3px solid rgb(88 182 213)",
                 borderRadius: "10px",
                 padding: "10px",
-                fontSize: "2em",
+                fontSize: bottomFont ? bottomFont+'em' : '1em',
                 zIndex: "1"
               }}
             >

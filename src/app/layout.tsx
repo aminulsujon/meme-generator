@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -73,7 +73,10 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+
+        
       </head> 
+      <GoogleAnalytics gaId="G-5J4VFGM9ZG" />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

@@ -72,22 +72,30 @@ export default function Home() {
   
     <div className="bg-gray-100 flex flex-col items-center py-10">
       <h1 className="text-4xl font-bold text-blue-600 mb-8 px-4">Free Meme Generator</h1>
-      <input
-        type="file"
-        accept="image/*"
-        onChange={handleImageUpload}
-        className="mb-6 px-4 py-2 border border-gray-300 rounded-lg cursor-pointer"
-      />
-      <div className="flex flex-col sm:flex-row gap-4 mb-6">
+      
+      <div className="flex flex-col sm:flex-row sm:gap-4 mb-6">
+        <div className="border p-4 bg-white">
+          <label htmlFor="meme-background">Select Your Image</label>
+          <input
+            name="meme-background"
+            type="file"
+            accept="image/*"
+            onChange={handleImageUpload}
+            className="px-4 py-2 border border-gray-300 rounded-lg cursor-pointer"
+          />
+        </div>
+        
         {/* first button */}
-        <div>
+        <div className="border p-4 bg-white">
           <input
             type="text"
             placeholder="Top Text"
             value={topText}
             onChange={(e) => setTopText(e.target.value)}
             className="px-4 py-2 border border-gray-300 rounded-lg"
+            name="headBg"
           />
+          <label htmlFor="headBg">Top Text</label>
           <div>
             <input
               type="color"
@@ -126,14 +134,16 @@ export default function Home() {
           </div>
         </div>
         {/* second button */}
-        <div>
+        <div className="border p-4 bg-white">
           <input
             type="text"
             placeholder="Bottom Text"
             value={bottomText}
             onChange={(e) => setBottomText(e.target.value)}
             className="px-4 py-2 border border-gray-300 rounded-lg"
+            name="bottomText"
           />
+          <label htmlFor="bottomText">Bottom TEXT</label>
           <div>
             <input
               type="color"

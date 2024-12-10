@@ -66,14 +66,33 @@ export default function Home() {
       )
     );
   };
-  
+  const themes = [
+    "cartoon-happy-funny-face-open-mouth-yellow-background-vibrant-d-cartoon-character-happy-funny-face.png",
+    "cat-looking-meme-free-meme-generator.jpg",
+    "funny-monkey-meme-generator.png",
+    "cat-salfy-meme-generator-online.jpg",
+    "funny-monkey-meme-generator-free.jpg",
+    "funny-dog-meme-generator.jpg",
+    "cat-shout-meme-generator.jpg",
+    "funny-duck-meme-generator.jpg",
+    "funny-cat-free-meme-generator.jpg",
+    "achieving-your-goals-meme-generator.png",
+    "funny-animal-meme-generator.jpg",
+    "funny-animal-meme-free-meme-create.jpg"
+  ];
   return (
   <>
   
     <div className="bg-gray-100 flex flex-col items-center py-10">
       <h1 className="text-4xl font-bold text-blue-600 mb-8 px-4">Free Meme Generator</h1>
-      
-      <div className="flex flex-col sm:flex-row sm:gap-4 mb-6">
+      <div className="grid grid-cols-4 sm:grid-cols-6 gap-2 bg-red-100 p-4">
+        {themes.map((theme, index) => (
+          <div key={index}>
+            <Image src={'/'+theme} height={300} width={300} alt="Meme" className="rounded-lg" />
+          </div>
+        ))}
+      </div>
+      <div className="flex flex-col sm:flex-row sm:gap-4 mb-6 border-t bg-green-100 w-full place-content-center	py-4">
     
         <div className="border p-4 bg-white">
           <label htmlFor="meme-background">Select Your Image</label>

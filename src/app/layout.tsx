@@ -73,10 +73,9 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-
-        
+        <GoogleAnalytics gaId="G-5J4VFGM9ZG" />
       </head> 
-      <GoogleAnalytics gaId="G-5J4VFGM9ZG" />
+      
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

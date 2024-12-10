@@ -74,6 +74,7 @@ export default function Home() {
       <h1 className="text-4xl font-bold text-blue-600 mb-8 px-4">Free Meme Generator</h1>
       
       <div className="flex flex-col sm:flex-row sm:gap-4 mb-6">
+    
         <div className="border p-4 bg-white">
           <label htmlFor="meme-background">Select Your Image</label>
           <input
@@ -84,8 +85,7 @@ export default function Home() {
             className="px-4 py-2 border border-gray-300 rounded-lg cursor-pointer"
           />
         </div>
-        
-        {/* first button */}
+
         <div className="border p-4 bg-white">
           <input
             type="text"
@@ -133,7 +133,7 @@ export default function Home() {
             <label htmlFor="fontbutton">Font</label>
           </div>
         </div>
-        {/* second button */}
+        
         <div className="border p-4 bg-white">
           <input
             type="text"

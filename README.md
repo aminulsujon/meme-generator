@@ -11,7 +11,7 @@ Welcome to the **Meme Generator**, a sleek and responsive application built with
 - Download the meme with ease.
 
 Perfect for meme enthusiasts, social media users, and anyone looking to have fun with memes! 🎭
-**[Live Demo - Generate meme now](https://free-meme-generator.vercel.app/)** 
+## [Live Demo - Generate meme now](https://free-meme-generator.vercel.app/)** 
 
 ---
 
@@ -58,7 +58,7 @@ Perfect for meme enthusiasts, social media users, and anyone looking to have fun
 ### Steps to Run the App Locally
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/meme-generator.git
+   git clone https://github.com/aminulsujon/meme-generator.git
    cd meme-generator
    ```
 
@@ -132,7 +132,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 If you encounter any issues, feel free to:
 - Open an issue on GitHub.
-- Contact me at **your-email@example.com**.
+- Contact me at **aminul0515001@gmail.com**.
 
 ---
 
